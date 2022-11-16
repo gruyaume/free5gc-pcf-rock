@@ -1,0 +1,20 @@
+name: free5gc-pcf
+summary: free5GC PCF
+description: free5GC PCF
+version: "1.1.1"
+license: Apache-2.0
+base: bare
+build-base: ubuntu:22.04
+platforms:
+  amd64:
+
+cmd: ["pcf -c /free5gc/config/pcfcfg.yaml"]
+
+parts:
+  free5gc-pcf:
+    plugin: go
+    source: https://github.com/free5gc/pcf
+    source-type: git
+    source-tag: v1.1.1
+    organize:
+      bin/cmd: bin/pcf
